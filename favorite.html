@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Hero Hunter</title>
+</head>
+<body>
+
+   <centre><h1> Your Favorite Comic(s)</h1></centre> 
+    <div id="resultContainer"></div>
+    
+    <script>
+        // Retrieve favorite IDs from local storage
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        
+        // Display favorite IDs and their details on the webpage
+        const resultContainer = document.getElementById('resultContainer');
+        resultContainer.innerHTML += `<ul>`;
+        
+        // Generate API request URL to fetch all superheroes
+           var ts = Math.floor(Date.now() / 1000); // Current timestamp
+    var privateKey = '5d3e82e10de9d7883de36483ecd1f2beefb66dd0'; // Your private key
+    var publicKey = 'f2e74210c52bf5a76d2f06a6cabdd5e2'; // Your public key
+    var hash = CryptoJS.MD5(ts + privateKey + publicKey).toString();
+    console.log(hash);
+
+    // Make API request
+    var apiUrl = `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+        
+        // Make API request to fetch all superheroes
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const allSuperheroes = data.data.results;
+                
+                // Filter superheroes based on favorite IDs
+                const favoriteSuperheroes = allSuperheroes.filter(superhero => favorites.includes(superhero.id));
+                
+                favoriteSuperheroes.forEach(superhero => {
+                    resultContainer.innerHTML += ` 
+                    <div class="card">
+                    <div class="card-image">
+                                <figure class="image is-5by4" style="width: 100%;">
+                                    <img src="${superhero.thumbnail.path + '.' + superhero.thumbnail.extension}" alt="${superhero.title}">
+                                </figure>
+                            </div>
+                            <div class="control">
+                            <span class="icon" id="favoriteButton-${superhero.id}">
+    <i class="fas fa-heart heart-icon ${localStorage.getItem('favorites')?.includes(superhero.id) ? 'favorited' : 'not-favorited'}"></i>
+</span>
+                        </div>
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                    </div>
+                                    <div class="media-content">
+                                        <p class="title is-4">${superhero.title}</p>
+                                        <p class="subtitle is-6">${superhero.series.name ? superhero.series.name : 'N/A'}</p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    ${superhero.description ? superhero.description : 'Description is not available'}
+                                    <br />
+                                    <time datetime="2016-1-1">${superhero.modified}</time>
+                                </div>
+                                </div>
+                            </div>`;
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        
+        resultContainer.innerHTML += `</ul>`;
+    </script>
+</body>
+</html>

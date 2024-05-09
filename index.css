@@ -1,0 +1,114 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+html{
+    /* background-color: aliceblue; */
+}
+.custom-dark {
+    background-color: #ffffff !important; /* Dark background color */
+    color: #000000 !important; /* Light text color */
+}
+
+.custom-dark input {
+    background-color: transparent !important; /* Light input background color */
+    color: #000 !important; /* Dark input text color */
+}
+.custom-dark input::placeholder {
+    color: #000 !important; /* Dark placeholder text color */
+}
+/* html{
+    background-color: black;
+
+} */
+h1{
+    font-size: 50px;
+}
+body{
+    height:100%;
+}
+.panel{
+    width:90%;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.comic-image {
+    width: 100px; /* Set the width of the image */
+    height: 100px; /* Set the height of the image */
+    object-fit: cover; /* Ensure the image covers the specified dimensions */
+    margin-right: 10px; /* Add some spacing to the right of the image */
+}
+#resultContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.card{
+    margin: 30px 20px 30px 20px; width:300px; height: 500px; overflow-y: auto;
+}
+.card::-webkit-scrollbar {
+    width: 6px; /* Set the width of the scrollbar */
+}
+
+.card::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set the color of the scrollbar thumb */
+}
+
+.card::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Set the color of the scrollbar track */
+}
+.control{
+    margin: 5px 0px 0px 10px;
+}
+
+.heart-icon.favorited {
+    color: #e2264d; /* Red color */
+    animation: heart-animation-red 0.3s ease;
+}
+
+.heart-icon.not-favorited {
+    color: #7e7e7e; /* Red color */
+    animation: heart-animation-grey 0.3s ease;
+}
+
+.heart-icon.fa-heart {
+    font-size: 2em;
+    cursor: pointer;
+    align-self: center;
+    margin-left: 2%;
+}
+
+@keyframes heart-animation-grey {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes heart-animation-red {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0.9);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

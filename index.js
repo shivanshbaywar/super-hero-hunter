@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(hash);
 
     // Make API request
-    var apiUrl = `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+    var apiUrl = `https://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
     fetch(apiUrl)
         .then(response => response.json())

@@ -1,23 +1,4 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
-html{
-    /* background-color: aliceblue; */
-}
-.custom-dark {
-    background-color: #ffffff !important; /* Dark background color */
-    color: #000000 !important; /* Light text color */
-}
-
-.custom-dark input {
-    background-color: transparent !important; /* Light input background color */
-    color: #000 !important; /* Dark input text color */
-}
-.custom-dark input::placeholder {
-    color: #000 !important; /* Dark placeholder text color */
-}
-/* html{
-    background-color: black;
-
-} */
 h1{
     font-size: 50px;
 }
@@ -36,10 +17,10 @@ body{
 }
 
 .comic-image {
-    width: 100px; /* Set the width of the image */
-    height: 100px; /* Set the height of the image */
-    object-fit: cover; /* Ensure the image covers the specified dimensions */
-    margin-right: 10px; /* Add some spacing to the right of the image */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px; 
 }
 #resultContainer{
     display: flex;
@@ -52,27 +33,27 @@ body{
     margin: 30px 20px 30px 20px; width:300px; height: 500px; overflow-y: auto;
 }
 .card::-webkit-scrollbar {
-    width: 6px; /* Set the width of the scrollbar */
+    width: 6px; 
 }
 
 .card::-webkit-scrollbar-thumb {
-    background-color: #888; /* Set the color of the scrollbar thumb */
+    background-color: #888;
 }
 
 .card::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Set the color of the scrollbar track */
+    background-color: #f1f1f1; 
 }
 .control{
     margin: 5px 0px 0px 10px;
 }
 
 .heart-icon.favorited {
-    color: #e2264d; /* Red color */
+    color: #e2264d;
     animation: heart-animation-red 0.3s ease;
 }
 
 .heart-icon.not-favorited {
-    color: #7e7e7e; /* Red color */
+    color: #7e7e7e; 
     animation: heart-animation-grey 0.3s ease;
 }
 
@@ -82,7 +63,7 @@ body{
     align-self: center;
     margin-left: 2%;
 }
-
+/* animation for grey */
 @keyframes heart-animation-grey {
     0% {
         transform: scale(1);
@@ -97,6 +78,7 @@ body{
         transform: scale(1);
     }
 }
+/* animation for red */
 
 @keyframes heart-animation-red {
     0% {

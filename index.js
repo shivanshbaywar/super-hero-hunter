@@ -41,9 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 var comicDiv = createComicCardElement(comic);
                 resultContainer.appendChild(comicDiv);
             });
-        } else {
-            // Make API request and store data in local storage
-            // ... your API request code ...
         }
     });
 });

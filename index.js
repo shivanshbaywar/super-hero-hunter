@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Generate timestamp and hash values
-    var ts = Math.floor(Date.now() / 1000); // Current timestamp
-    var privateKey = '5d3e82e10de9d7883de36483ecd1f2beefb66dd0'; // Your private key
-    var publicKey = 'f2e74210c52bf5a76d2f06a6cabdd5e2'; // Your public key
+    var ts = Math.floor(Date.now() / 1000);
+    var privateKey = '5d3e82e10de9d7883de36483ecd1f2beefb66dd0';
+    var publicKey = 'f2e74210c52bf5a76d2f06a6cabdd5e2';
     var hash = CryptoJS.MD5(ts + privateKey + publicKey).toString();
     console.log(hash);
 
